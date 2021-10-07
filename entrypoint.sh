@@ -5,7 +5,7 @@ set -e
 echo "::group::changed-files"
 
 echo "Resolving repository path..."
-
+echo "test new script"
 if [[ -n $INPUT_PATH ]]; then
   REPO_DIR="$GITHUB_WORKSPACE/$INPUT_PATH"
   if [[ ! -d "$REPO_DIR" ]]; then
