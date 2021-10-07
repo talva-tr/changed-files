@@ -17,7 +17,6 @@ fi
 
 SERVER_URL=$(echo "$GITHUB_SERVER_URL" | awk -F/ '{print $3}')
 
-git remote remove temp_changed_files
 git remote add temp_changed_files "https://${INPUT_TOKEN}@${SERVER_URL}/${GITHUB_REPOSITORY}"
 
 echo "Getting HEAD info..."
