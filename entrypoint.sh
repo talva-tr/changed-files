@@ -5,7 +5,6 @@ set -e
 echo "::group::changed-files"
 
 echo "Resolving repository path..."
-echo "test new script"
 if [[ -n $INPUT_PATH ]]; then
   REPO_DIR="$GITHUB_WORKSPACE/$INPUT_PATH"
   if [[ ! -d "$REPO_DIR" ]]; then
@@ -49,7 +48,7 @@ if [[ -z $GITHUB_BASE_REF ]]; then
 else
   TARGET_BRANCH=$GITHUB_BASE_REF
   CURRENT_BRANCH=$GITHUB_HEAD_REF
-  git fetch origin -u "${TARGET_BRANCH}":"${TARGET_BRANCH}"
+  git fetch temp_changed_files -u "${TARGET_BRANCH}":"${TARGET_BRANCH}"
   if [[ -z $INPUT_BASE_SHA ]]; then
     PREVIOUS_SHA=$(git rev-parse "${TARGET_BRANCH}" 2>&1) && exit_status=$? || exit_status=$?
   else
