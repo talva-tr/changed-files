@@ -50,7 +50,7 @@ if [[ -z $GITHUB_BASE_REF ]]; then
 else
   TARGET_BRANCH=$GITHUB_BASE_REF
   CURRENT_BRANCH=$GITHUB_HEAD_REF
-  git fetch origin --update-head-ok "${TARGET_BRANCH}":"${TARGET_BRANCH}" 
+  git fetch origin 
   if [[ -z $INPUT_BASE_SHA ]]; then
     PREVIOUS_SHA=$(git rev-parse "${TARGET_BRANCH}" 2>&1) && exit_status=$? || exit_status=$?
   else
